@@ -1,15 +1,4 @@
-function TheRedZone(user_folder, subfolder, filename, seconds, fps)
-
-sfolder=user_folder;
-ssfolder=subfolder;
-sname=filename;
-nframes=seconds*fps;
-ndelay=(1/fps);
-
-folderName=[sfolder , '\' , ssfolder];
-mkdir(folderName);
-
-% Drawing TheRedZone
+clear;
 % Create axes control.
 handleToAxes = axes();
 % Get the handle to the image in the axes.'
@@ -45,7 +34,8 @@ pos = [x0-r, y0-r, 2*r, 2*r];
 [columnsInImage, rowsInImage] = meshgrid(1:imageSizeX, 1:imageSizeY);
 
 circlePixels = (rowsInImage - y0).^2 + (columnsInImage - x0).^2 <= r.^2;
-disp(~circlePixels);
+
+disp(circlePixels);
 
 
 rectangle('Position', pos, 'Curvature', [1,1], 'EdgeColor','r','LineWidth',1)
